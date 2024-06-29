@@ -14,11 +14,14 @@ for filepath in filepaths:
     #get invoice number
     filename = Path(filepath).stem
     invoiceSr = filename.split("-")[0]
+    Datee = filename.split("-")[1]
     #create Pdf
     pdf  = FPDF(orientation="P", format="A4", unit="mm" )
     pdf.add_page()
     pdf.set_font(family="Times", size=18, style="B")
-    pdf.cell(w=50, h=8, txt="Invoice Sr : "+invoiceSr)
-    pdf.output("Example.pdf")
+    pdf.cell(w=50, h=8, txt="Invoice Sr : "+invoiceSr, ln=1)
+    pdf.set_font(family="Times", size=18, style="B")
+    pdf.cell(w=50, h=8, txt="Date : "+Datee)
+    pdf.output("invoices-Pdf/Example.pdf")
 
 
